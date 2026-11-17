@@ -1,22 +1,22 @@
-# Homework 1
+# Part 1 — Classifiers and Architecture Studies
 
-**Group 14 Contributions:** Henrique Machado completed Question 1, Jaime Silva completed Question 2, and Gil Arroteia completed Question 3.
+**Contributions:** Henrique Machado, Jaime Silva and Gil Arroteia.
 
-## Question 1
+## Classifiers on image data
 
 ### 1(a)
 
 The test accuracy of the model with the best performance on the validation set is 61.1% it's validation accuracy was 61.3% and this is refereing to epoch 6.
 The model file is in `results/single_perceptron/Q1-perceptron-save.pkl`.
 This accuracy plot is located in `results/single_perceptron/Q1-perceptron-accs.pdf`.
-For this exercise we implemented the update_weight, train_epoch, predict, and evaluate methods of the Perceptron class in `skeleton_code/hw1-perceptron.py` and run that file.
+For this exercise we implemented the update_weight, train_epoch, predict, and evaluate methods of the Perceptron class in `models/perceptron.py` and run that file.
 
 ### 2(a)
 
 The test accuracy of the model with the best performance on the validation set is 69.6% it's validation accuracy was 69.7% and this is refereing to epoch 20.
 The model file is in `results/logistic_regression/Q1-2-logistic-a.pkl`.
 This accuracy plot is located in `results/logistic_regression/Q1-2-logistic-a.pdf`.
-For this exercise we created a logistic regression class in `skeleton_code/hw1-logistic_regression.py` and run it with `experiments/logistic_regression_run.py -q a` .
+For this exercise we created a logistic regression class in `models/logistic_regression.py` and run it with `experiments/logistic_regression_run.py -q a` .
 
 ### 2(b)
 
@@ -52,14 +52,14 @@ The test accuracy of the configuration with the best validation accuracy was 87.
 The train and validation accuracy curves are shown in `results/multilayer_perceptron/Q1-3-mlp-accuracy.pdf`.
 The loss curve is shown in `results/multilayer_perceptron/Q1-3-mlp-loss.pdf`.
 
-## Question 2
+## Feedforward networks in PyTorch
 
-This document consolidates the key findings from all Question 2 experiments (PyTorch FFNs on EMNIST Letters) so we can quickly craft the final report answers.
+This document consolidates the key findings from all the PyTorch experiments (PyTorch FFNs on EMNIST Letters) so we can quickly craft the final report answers.
 
 ---
 
 ### Implementation Warmup
-- `FeedforwardNetwork` in `skeleton_code/hw1-ffn.py` now supports arbitrary depth, configurable activation (`relu`/`tanh`), dropout, and weight decay.
+- `FeedforwardNetwork` in `models/feedforward.py` now supports arbitrary depth, configurable activation (`relu`/`tanh`), dropout, and weight decay.
 - Training utilities (`train_batch`, `evaluate`, CLI options) were generalized to save metrics/plots and to run scripted sweeps without modification.
 - Sanity runs with width = 16 confirmed the pipeline before large sweeps.
 
@@ -128,13 +128,13 @@ This document consolidates the key findings from all Question 2 experiments (PyT
 
 ---
 
-### Takeaways for the Final Write-Up
+### Takeaways
 1. **Width vs. Performance:** Wider hidden layers consistently boost accuracy until ~128 units; beyond that, returns diminish while training accuracy continues to rise. Dropout becomes key to prevent overfitting at very large widths.
 2. **Best Model:** A single-hidden-layer network with 256 units, ReLU, lr = 3e‑4, dropout = 0.2 hits 90.9 % validation / 90.8 % test accuracy.
 3. **Depth Trade-offs:** Holding width fixed, increasing depth without architectural aids severely degrades both training and validation accuracy. The data favors shallow networks for this task/setting.
 4. **Figures & Artifacts:** Use the plots in `figures/width_study/` and `figures/depth_study/` to support the analysis tables above; cite JSON summaries if precise numbers are required.
 
-## Question 3
+## Theory — ReLU, softmax and gradients
 
 ### 1
 
@@ -594,7 +594,7 @@ We apply the chain rule. Since $\log(C)$ is a constant, $\frac{\partial \log(C)}
 $$
 \frac{\partial L}{\partial z_j} = -\frac{1}{p_i + \epsilon} \cdot \frac{\partial (p_i + \epsilon)}{\partial z_j} = -\frac{1}{p_i + \epsilon} \cdot \frac{\partial p_i}{\partial z_j}
 $$
-The term $\frac{\partial p_i}{\partial z_j}$ is the entry $J_{ij}$ of the $\text{relumax}_b$ Jacobian, computed in Question 4.
+The term $\frac{\partial p_i}{\partial z_j}$ is the entry $J_{ij}$ of the $\text{relumax}_b$ Jacobian, derived above.
 $$
 \frac{\partial p_i}{\partial z_j} = \frac{\mathbf{1}_{u_i > -b} \cdot \delta_{ij} - p_i \cdot \mathbf{1}_{u_j > -b}}{D}
 $$

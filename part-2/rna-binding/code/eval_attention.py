@@ -9,9 +9,7 @@ script_dir = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(script_dir)
 from attention_model import RNABindingLSTMAttention
 
-# Import skeleton utils
-skeleton_path = os.path.join(script_dir, 'hw2_q2_skeleton_code')
-sys.path.append(skeleton_path)
+# Local utilities
 from utils import load_rnacompete_data, configure_seed, masked_mse_loss, masked_spearman_correlation
 import numpy as np
 

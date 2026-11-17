@@ -17,12 +17,10 @@ import torch.nn as nn
 from torch.utils.data import DataLoader
 from typing import Dict, List, Tuple, Optional
 
-# Import from skeleton code
+# Local utilities
 import sys
 import os
 script_dir = os.path.dirname(os.path.abspath(__file__))
-skeleton_path = os.path.join(script_dir, 'hw2_q2_skeleton_code')
-sys.path.append(skeleton_path)
 from utils import (
     load_rnacompete_data,
     masked_mse_loss,
@@ -33,7 +31,7 @@ from utils import (
 
 # Import models (in same directory as this script)
 sys.path.insert(0, script_dir)
-from hw2_q2_models import create_model
+from models import create_model
 
 
 class EarlyStopping:

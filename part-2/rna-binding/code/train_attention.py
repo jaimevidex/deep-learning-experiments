@@ -6,10 +6,8 @@ from torch.utils.data import DataLoader
 from typing import Dict, List, Tuple, Optional
 import sys
 
-# Import components from skeleton code
+# Local components
 script_dir = os.path.dirname(os.path.abspath(__file__))
-skeleton_path = os.path.join(script_dir, 'hw2_q2_skeleton_code')
-sys.path.append(skeleton_path)
 from utils import masked_mse_loss, masked_spearman_correlation, plot
 
 def train_epoch(

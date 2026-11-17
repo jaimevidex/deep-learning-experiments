@@ -23,8 +23,8 @@ def parse_args():
     parser.add_argument(
         "--hw1_ffn_path",
         type=Path,
-        default=Path(__file__).resolve().parents[1] / "skeleton_code" / "hw1-ffn.py",
-        help="Path to hw1-ffn.py file.",
+        default=Path(__file__).resolve().parents[1] / "models" / "feedforward.py",
+        help="Path to feedforward.py.",
     )
     parser.add_argument(
         "--data_path",

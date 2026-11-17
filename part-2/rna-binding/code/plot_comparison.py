@@ -12,7 +12,7 @@ def main():
     script_dir = os.path.dirname(os.path.abspath(__file__))
     
     # 1. Load Baseline Data
-    # Assuming the results.json is in Homework2/hw2_q2/results/results.json
+    # results.json lives in ../results/
     # relative to code/ it is ../results/results.json
     baseline_path = os.path.join(script_dir, '..', 'results', 'results.json')
     try:

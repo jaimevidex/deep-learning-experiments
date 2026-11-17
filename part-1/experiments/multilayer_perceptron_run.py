@@ -14,8 +14,8 @@ parent_dir = os.path.dirname(current_dir)
 
 sys.path.append(parent_dir)
 
-import skeleton_code.hw1_multilayer_perceptron as mlp
-import skeleton_code.utils as utils
+import models.hw1_multilayer_perceptron as mlp
+import models.utils as utils
 
 def main():
     data_path = Path(__file__).resolve().parents[1] / "emnist-letters.npz"

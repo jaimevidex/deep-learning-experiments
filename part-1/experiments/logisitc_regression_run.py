@@ -15,8 +15,8 @@ parent_dir = os.path.dirname(current_dir)
 
 sys.path.append(parent_dir)
 
-import skeleton_code.hw1_logistic_regression as lr
-import skeleton_code.utils as utils
+import models.hw1_logistic_regression as lr
+import models.utils as utils
 
 def apply_max_pooling(X):
     """

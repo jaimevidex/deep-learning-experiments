@@ -11,9 +11,7 @@ sys.path.append(script_dir)
 from attention_model import RNABindingLSTMAttention
 from train_attention import train_attention_model
 
-# Import skeleton utils
-skeleton_path = os.path.join(script_dir, "hw2_q2_skeleton_code")
-sys.path.append(skeleton_path)
+# Local utilities
 from utils import load_rnacompete_data, configure_seed
 
 

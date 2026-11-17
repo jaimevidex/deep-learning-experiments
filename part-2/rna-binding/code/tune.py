@@ -271,7 +271,7 @@ def main():
     parser.add_argument('--patience', type=int, default=10, help='Early stopping patience')
     parser.add_argument('--seed', type=int, default=42, help='Random seed')
     parser.add_argument('--save_dir', type=str, default='results', help='Results directory')
-    parser.add_argument('--train_script', type=str, default='hw2_q2_train.py',
+    parser.add_argument('--train_script', type=str, default='train.py',
                         help='Path to training script')
     
     args = parser.parse_args()
